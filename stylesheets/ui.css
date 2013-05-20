@@ -1,0 +1,398 @@
+.jtBtn {
+  text-align: center;
+  padding: 5px 15px;
+  color: #0f0f0f;
+  border: 1px solid #c0c0c0;
+  background-color: #e0e0e0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #e0e0e0));
+  background-image: -webkit-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+  background-image: -moz-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+  background-image: -o-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+  background-image: -ms-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+  background-image: linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+  -webkit-box-shadow: inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1);
+  -moz-box-shadow: inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: radius;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.jtBtn:hover {
+  background-color: #c0c0c0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #c0c0c0));
+  background-image: -webkit-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: -moz-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: -o-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: -ms-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+}
+.jtBtnPrimary {
+  background-color: #0054a6;
+  border: 1px solid #0054a6;
+  color: #fff;
+  background-image: none;
+  -webkit-box-shadow: inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1);
+  -moz-box-shadow: inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+}
+.jtBtnPrimary:hover {
+  background-image: none;
+  background-color: #004c95;
+}
+.jtArrowUp {
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent;
+  border-bottom-color: #222;
+}
+.jtArrowDown {
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: transparent;
+  border-top-color: #222;
+}
+.jtArrowLeft {
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 5px 5px 5px 0;
+  border-color: transparent;
+  border-right-color: #222;
+}
+.jtArrowRight {
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent;
+  border-left-color: #222;
+}
+.jtBorderRadius5 {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: radius;
+}
+.jtBorderRadius3 {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: radius;
+}
+.jtGrayGradient {
+  color: #000;
+  background-color: #c0c0c0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fff8f8f8,endColorstr=#ffc0c0c0,enabled=true);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #c0c0c0));
+  background-image: -webkit-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: -moz-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: -o-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: -ms-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+  background-image: linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
+}
+.jtBlueGradient {
+  color: #fff;
+  background-color: #004385;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff0054a6,endColorstr=#ff004385,enabled=true);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0054a6), color-stop(1, #004385));
+  background-image: -webkit-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: -moz-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: -o-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: -ms-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: linear-gradient(top, #0054a6 0%, #004385 100%);
+}
+.jtWidget input[type="text"] {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+.jtWidget input[type="text"]:focus {
+  border-color: rgba(160,10,10,0.8);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) 0 0 8px rgba(160,10,10,0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) 0 0 8px rgba(160,10,10,0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) 0 0 8px rgba(160,10,10,0.6);
+}
+.jtMask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+}
+.jtSelect {
+  border: 1px solid #e0e0e0;
+  width: 150px;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  z-index: 9;
+}
+.jtSelect input.userInput {
+  width: 126px;
+  border: none;
+  text-indent: 0.5em;
+  height: 100%;
+  border: none;
+}
+.jtSelect .showSelect {
+  display: block;
+  float: right;
+  height: 100%;
+  width: 24px;
+}
+.jtSelect .showSelect .jtArrowDown,
+.jtSelect .showSelect .jtArrowUp {
+  display: block;
+  margin: 8px auto auto auto;
+}
+.jtSelect .selectList {
+  position: absolute;
+  left: 0;
+  width: 150px;
+  top: 24px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  max-height: 300px;
+  overflow: auto;
+  display: none;
+}
+.jtSelect .selectList li {
+  cursor: pointer;
+  padding: 3px 10px;
+}
+.jtSelect .selectList li:hover {
+  color: #fff;
+  background-color: #800000;
+}
+.jtDialog {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  width: 500px;
+  position: fixed;
+  left: 50%;
+  margin-left: -250px;
+  top: 150px;
+  background-color: #fff;
+  z-index: 99;
+}
+.jtDialog .content {
+  padding: 10px;
+  padding-bottom: 0;
+}
+.jtDialog .title {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  font-weight: 900;
+  margin: 3px;
+}
+.jtDialog .title .close {
+  display: block;
+  width: 20px;
+  text-align: center;
+  height: 100%;
+  float: right;
+  margin-right: 2px;
+  font-size: 21px;
+  color: #fff;
+  opacity: 0.6;
+}
+.jtDialog .title .close:hover {
+  opacity: 1;
+}
+.jtDialog .btns {
+  text-align: right;
+  margin: 10px 5px 5px 0;
+}
+.jtDialog .btns .btn {
+  margin-left: 10px;
+}
+.jtAlertDlg {
+  width: 400px;
+  margin-left: -200px;
+}
+.jtDatePicker {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 4px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  display: none;
+}
+.jtDatePicker .arrowContainer {
+  position: absolute;
+  left: 10px;
+  top: -20px;
+  height: 0;
+  width: 0;
+  border: 10px solid #fff;
+  border-color: transparent transparent #fff transparent;
+}
+.jtDatePicker .arrowContainerBottom {
+  border-width: 12px;
+  top: -24px;
+  left: 8px;
+  border-bottom-color: #e0e0e0;
+}
+.jtDatePicker table {
+  width: 100%;
+}
+.jtDatePicker table th,
+.jtDatePicker table td {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+}
+.jtDatePicker table th.currentDay,
+.jtDatePicker table td.currentDay {
+  color: #fff;
+  background-color: #004385;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0054a6), color-stop(1, #004385));
+  background-image: -webkit-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: -moz-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: -o-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: -ms-linear-gradient(top, #0054a6 0%, #004385 100%);
+  background-image: linear-gradient(top, #0054a6 0%, #004385 100%);
+}
+.jtDatePicker table th.currentDay:hover,
+.jtDatePicker table td.currentDay:hover {
+  background-color: #004385;
+}
+.jtDatePicker table th.active,
+.jtDatePicker table td.active {
+  color: #fff;
+  background-color: #800000;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #800000), color-stop(1, #a00000));
+  background-image: -webkit-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: -moz-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: -o-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: -ms-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: linear-gradient(top, #800000 0%, #a00000 100%);
+}
+.jtDatePicker table th.active:hover,
+.jtDatePicker table td.active:hover {
+  background-color: #800000;
+}
+.jtDatePicker table th.dateView {
+  width: 140px;
+}
+.jtDatePicker .prev,
+.jtDatePicker .next {
+  font-size: 21px;
+}
+.jtDatePicker .day:hover,
+.jtDatePicker .prev:hover,
+.jtDatePicker .next:hover,
+.jtDatePicker .dateView:hover,
+.jtDatePicker .month:hover {
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: radius;
+  background-color: #eee;
+}
+.jtDatePicker thead th {
+  font-weight: 900;
+}
+.jtDatePicker .monthsContainer {
+  display: none;
+}
+.jtDatePicker .monthsContainer .month {
+  display: block;
+  float: left;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+.jtAccordion {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+}
+.jtAccordion .item .title {
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.jtAccordion .item .title .jtArrowDown,
+.jtAccordion .item .title .jtArrowRight {
+  float: left;
+  margin: 12px 5px auto 7px;
+}
+.jtAccordion .item .title .jtArrowDown {
+  display: none;
+  border-top-color: #fff;
+}
+.jtAccordion .item .content {
+  padding: 5px 10px;
+  display: none;
+}
+.jtAccordion .item.active .jtArrowRight {
+  display: none;
+}
+.jtAccordion .item.active .jtArrowDown,
+.jtAccordion .item.active .content {
+  display: block;
+}
+.jtTabs {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+}
+.jtTabs .nav {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+}
+.jtTabs .nav li {
+  float: left;
+  padding: 0 10px;
+  width: 100px;
+  margin-top: 5px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  height: 25px;
+  line-height: 25px;
+}
+.jtTabs .nav li.active {
+  color: #000;
+  background-color: #fff;
+  background-image: none;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.jtTabs .tab {
+  display: none;
+  padding: 5px 10px;
+}
+.jtTabs .tab.active {
+  display: block;
+}

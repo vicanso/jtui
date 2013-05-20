@@ -1,0 +1,326 @@
+box-shadow(args...)
+  -webkit-box-shadow args
+  -moz-box-shadow args
+  box-shadow args
+
+user-select(args...)
+  -webkit-user-select args
+  -moz-user-select args
+  -ms-user-select args
+
+border-top-radius(args)
+  -moz-border-radius-topleft args
+  -moz-border-radius-topright args
+  -webkit-border-top-left-radius args
+  -webkit-border-top-right-radius args
+  border-top-left-radius args
+  border-top-right-radius args
+
+border-radius(args...)
+  -webkit-border-radius args
+  -moz-border-radius args
+  border-radius radius
+
+inlineBlock()
+  display inline-block
+  *display inline
+  *zoom inline
+
+vicansoGradient(start = #2c2c2c, end = #111)
+  background-image -webkit-gradient(linear, left top, left bottom, color-stop(0, start), color-stop(1, end))
+  background-image -webkit-linear-gradient(top, start 0%, end 100%)
+  background-image -moz-linear-gradient(top, start 0%, end 100%)
+  background-image -o-linear-gradient(top, start 0%, end 100%)
+  background-image -ms-linear-gradient(top, start 0%, end 100%)
+  background-image linear-gradient(top, start 0%, end 100%)
+
+.jtBtn
+  text-align center
+  padding 5px 15px
+  color #0f0f0f
+  border 1px solid #c0c0c0
+  background-color #e0e0e0
+  vicansoGradient #f8f8f8, #e0e0e0
+  box-shadow inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1)
+  border-radius 3px
+  display inline-block
+  *display inline
+  *zoom 1
+  &:hover
+    background-color #c0c0c0
+    vicansoGradient #f8f8f8, #c0c0c0
+.jtBtnPrimary
+  background-color #0054a6
+  border 1px solid #0054a6
+  color #fff
+  background-image none
+  box-shadow inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1)
+  text-shadow 0 -1px 0 rgba(0,0,0,0.2)
+  &:hover
+    background-image none
+    background-color #004c95
+
+
+$ArrowColor = #222
+.jtArrowUp
+  height 0
+  width 0
+  border-style solid
+  border-width 0 5px 5px 5px
+  border-color transparent
+  border-bottom-color $ArrowColor
+.jtArrowDown
+  height 0
+  width 0
+  border-style solid
+  border-width 5px 5px 0 5px
+  border-color transparent
+  border-top-color $ArrowColor
+.jtArrowLeft
+  height 0
+  width 0
+  border-style solid
+  border-width 5px 5px 5px 0
+  border-color transparent
+  border-right-color $ArrowColor
+.jtArrowRight
+  height 0
+  width 0
+  border-style solid
+  border-width 5px 0 5px 5px
+  border-color transparent
+  border-left-color $ArrowColor
+
+.jtBorderRadius5
+  border-radius 5px
+.jtBorderRadius3
+  border-radius 3px
+.jtGrayGradient
+  color black
+  background-color #c0c0c0
+  filter unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr=#fff8f8f8,endColorstr=#ffc0c0c0,enabled=true)")
+  vicansoGradient #f8f8f8, #c0c0c0
+.jtBlueGradient
+  color white
+  background-color #004385
+  filter unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff0054a6,endColorstr=#ff004385,enabled=true)")
+  vicansoGradient #0054a6, #004385
+
+.jtWidget
+  input[type="text"]
+    background-color #fff
+    border 1px solid #cccccc
+    box-shadow inset 0 1px 1px rgba(0, 0, 0, 0.075)
+    -webkit-transition border linear 0.2s, box-shadow linear 0.2s
+    -moz-transition border linear 0.2s, box-shadow linear 0.2s
+    -o-transition border linear 0.2s, box-shadow linear 0.2s
+    transition border linear 0.2s, box-shadow linear 0.2s
+    &:focus
+      border-color rgba(160, 10, 10, 0.8)
+      outline 0
+      box-shadow inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(160, 10, 10, 0.6)
+.jtMask
+  position fixed
+  left 0
+  top 0
+  bottom 0
+  right 0
+  background-color rgba(0, 0, 0, 0.6)
+
+.jtSelect
+  $jtSelectHeight = 24px
+  $jtSelectWidth = 150px
+  $jtArrowWidth = 24px
+  $border = 1px solid #e0e0e0
+  border $border
+  width $jtSelectWidth
+  height $jtSelectHeight
+  line-height @height
+  position relative
+  z-index 9
+  input.userInput
+    width $jtSelectWidth - $jtArrowWidth
+    border none
+    text-indent 0.5em
+    height 100%
+    border none
+  .showSelect
+    display block
+    float right
+    height 100%
+    width $jtArrowWidth
+    .jtArrowDown, .jtArrowUp{
+      display block
+      margin 8px auto auto auto
+    }
+  .selectList
+    position absolute
+    left 0
+    width $jtSelectWidth
+    top $jtSelectHeight
+    border $border
+    background-color #fff
+    max-height 300px
+    overflow auto
+    display none
+    li
+      cursor pointer
+      padding 3px 10px
+      &:hover
+        color white
+        background-color #800000
+
+.jtDialog
+  box-shadow 0 0 0 1px rgba(0, 0, 0, 0.3)
+  width 500px
+  position fixed
+  left 50%
+  margin-left -(@width / 2)
+  top 150px
+  background-color #fff
+  z-index 99
+  .content
+    padding 10px
+    padding-bottom 0
+  .title
+    height 30px
+    line-height @height
+    padding-left 10px
+    font-weight 900
+    margin 3px
+    .close
+      display block
+      width 20px
+      text-align center
+      height 100%
+      float right
+      margin-right 2px
+      font-size 21px
+      color white
+      opacity 0.6
+      &:hover
+        opacity 1
+  .btns
+    text-align right
+    margin 10px 5px 5px 0
+    .btn
+      margin-left 10px
+
+.jtAlertDlg
+  width 400px
+  margin-left -(@width / 2)
+
+
+
+.jtDatePicker
+  $jtDatePickerBorderColor = #e0e0e0
+  position absolute
+  background-color #fff
+  border 1px solid $jtDatePickerBorderColor
+  border 1px solid rgba(0, 0, 0, 0.2)
+  padding 4px
+  box-shadow 0 5px 10px rgba(0, 0, 0, 0.2)
+  user-select none
+  display none
+  .arrowContainer
+    position absolute
+    left 10px
+    top -20px
+    height 0
+    width 0
+    border 10px solid #fff
+    border-color transparent transparent #fff transparent
+  .arrowContainerBottom
+    border-width 12px
+    top -24px
+    left 8px
+    border-bottom-color $jtDatePickerBorderColor
+  table
+    width 100%
+    th, td
+      text-align center
+      width 20px
+      height 20px
+      padding 5px
+      &.currentDay
+        color white
+        background-color #004385
+        vicansoGradient #0054a6, #004385
+        &:hover
+          background-color #004385
+      &.active
+        color white
+        background-color #800000
+        vicansoGradient #800000, #a00000
+        &:hover
+          background-color #800000
+    th.dateView
+      width 140px
+  .prev, .next
+    font-size 21px  
+  .day, .prev, .next, .dateView, .month
+    &:hover
+      cursor pointer
+      border-radius 3px
+      background-color #eee
+  thead th
+    font-weight 900
+  .monthsContainer
+    display none
+    .month
+      display block
+      float left
+      text-align center
+      width 50px
+      height 50px
+      line-height @height
+      
+.jtAccordion
+  box-shadow 0 0 0 1px rgba(0, 0, 0, 0.3)
+  .item
+    .title
+      height 30px
+      line-height @height
+      cursor pointer
+      .jtArrowDown, .jtArrowRight
+        float left
+        margin 12px 5px auto 7px
+      .jtArrowDown
+        display none
+        border-top-color white
+    .content
+      padding 5px 10px
+      display none
+    &.active
+      .jtArrowRight
+        display none
+      .jtArrowDown, .content
+        display block
+
+.jtTabs
+  box-shadow 0 0 0 1px rgba(0, 0, 0, 0.3)
+  .nav
+    $navHeight = 30px
+    height $navHeight
+    line-height @height
+    padding 0 10px
+    li
+      float left
+      padding 0 10px
+      width 100px
+      margin-top 5px
+      text-align center
+      overflow hidden
+      cursor pointer
+      height $navHeight - @margin-top
+      line-height @height
+      &.active
+        color #000
+        background-color #fff
+        background-image none
+        border-top-radius 3px
+  .tab
+    display none
+    padding 5px 10px
+    &.active
+      display block
