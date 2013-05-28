@@ -839,3 +839,66 @@ JT.View.Tabs = Backbone.View.extend {
     @model.at(0).set 'active', true
     @
 }
+
+
+JT.Model.Menu = Backbone.Model.extend {}
+
+JT.Collection.Menu = Backbone.Collection.extend
+  model : JT.Model.Menu
+
+JT.View.Menu = Backbone.View.extend
+  ###*
+   * initialize 构造函数
+   * @return {[type]} [description]
+  ###
+  initialize : ->
+    self = @
+    $el = @$el
+    $el.addClass 'jtMenu jtWidget'
+    @render()
+  ###*
+   * getHtml 获取html
+   * @param  {Array} data menu的数据
+   * @param  {Boolean} top  标记是否顶层menu
+   * @return {[type]}      [description]
+  ###
+  getHtml : (data, top) ->
+    self = @
+    htmlArr = []
+    if top
+      htmlArr.push '<ul class="topLevel jtBlueGradient">'
+    else
+      htmlArr.push '<ul class="subLevel initShowList jtBlueGradient">'
+    _.each data, (item) ->
+      htmlArr.push '<li class="item">'
+      if item.children
+        if top
+          htmlArr.push '<span class="jtArrowDown"></span>'
+        else
+          htmlArr.push '<span class="jtArrowRight"></span>'
+      htmlArr.push "<a href='javascript:;'>#{item.name}</a>"
+      if item.children
+        htmlArr.push self.getHtml item.children
+      htmlArr.push '</li>'
+    htmlArr.push '</ul>'
+    htmlArr.join ''
+  ###*
+   * setPosition 设置位置（计算子menu的位置）
+  ###
+  setPosition : ->
+    $el = @$el
+    $el.find('.subLevel .subLevel').each () ->
+      obj = $ @
+      parent = obj.parent '.item'
+      obj.css 'left', parent.outerWidth() + 2
+    $el.find('.initShowList').removeClass 'initShowList'
+    @
+  ###*
+   * [render description]
+   * @return {[type]} [description]
+  ###
+  render : ->
+    data = @model.toJSON()
+    html = @getHtml data, true
+    @$el.html html
+    @setPosition()

@@ -43,9 +43,7 @@ vicansoGradient(start = #2c2c2c, end = #111)
   vicansoGradient #f8f8f8, #e0e0e0
   box-shadow inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1)
   border-radius 3px
-  display inline-block
-  *display inline
-  *zoom 1
+  inlineBlock()
   &:hover
     background-color #c0c0c0
     vicansoGradient #f8f8f8, #c0c0c0
@@ -324,3 +322,53 @@ $ArrowColor = #222
     padding 5px 10px
     &.active
       display block
+
+.jtMenu
+  $itemWidth = 30px;
+  .topLevel
+    >.item
+      border-right 1px solid #fff
+      inlineBlock()
+      &:last-child
+        border-right none
+  .item
+    height $itemWidth
+    line-height @height
+    position relative
+    
+    .jtArrowDown
+      position absolute
+      right 15px
+      top 14px
+      border-top-color #fff
+    .jtArrowRight
+      position absolute
+      right 15px
+      top 10px
+      border-left-color #fff
+    &:hover
+      background-color #800000
+      filter unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff800000,endColorstr=#ffa00000,enabled=true)")
+      vicansoGradient #800000, #a00000
+      >.jtArrowDown, >.jtArrowRight
+        display none
+      >.subLevel
+        display block
+    a
+      display block
+      color white
+      padding 0 30px
+  .subLevel
+    position absolute
+    left 0
+    top 30px
+    display none
+    .item
+      border-bottom 1px solid #fff
+      &:last-child
+        border-bottom none
+    &.initShowList
+      display block
+      visibility hidden
+    .subLevel
+      top 2px

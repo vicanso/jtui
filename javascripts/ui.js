@@ -179,11 +179,10 @@
     */
 
     clickSelect: function(e) {
-      var index, obj, self;
+      var index, self;
 
       self = this;
-      obj = $(e.currentTarget);
-      index = obj.index('.option');
+      index = this.$el.find('.option').index(e.currentTarget);
       this.model.each(function(model, i) {
         if (i !== index) {
           return model.set('checked', false);
@@ -407,7 +406,7 @@
       } else {
         btnHtmlArr = [];
         _.each(btns, function(value, key) {
-          return btnHtmlArr.push("<a class='jtBtn' href='javascript:;'>" + key + "</a>");
+          return btnHtmlArr.push("<a class='jtBtn btn' href='javascript:;'>" + key + "</a>");
         });
         return "<div class='btns'>" + (btnHtmlArr.join('')) + "</div>";
       }
@@ -1112,6 +1111,94 @@
       this.$el.html("<ul class='jtBlueGradient nav'>" + (liHtmlArr.join('')) + "</ul>" + (tabHtmlArr.join('')));
       this.model.at(0).set('active', true);
       return this;
+    }
+  });
+
+  JT.Model.Menu = Backbone.Model.extend({});
+
+  JT.Collection.Menu = Backbone.Collection.extend({
+    model: JT.Model.Menu
+  });
+
+  JT.View.Menu = Backbone.View.extend({
+    /**
+     * initialize 构造函数
+     * @return {[type]} [description]
+    */
+
+    initialize: function() {
+      var $el, self;
+
+      self = this;
+      $el = this.$el;
+      $el.addClass('jtMenu jtWidget');
+      return this.render();
+    },
+    /**
+     * getHtml 获取html
+     * @param  {Array} data menu的数据
+     * @param  {Boolean} top  标记是否顶层menu
+     * @return {[type]}      [description]
+    */
+
+    getHtml: function(data, top) {
+      var htmlArr, self;
+
+      self = this;
+      htmlArr = [];
+      if (top) {
+        htmlArr.push('<ul class="topLevel jtBlueGradient">');
+      } else {
+        htmlArr.push('<ul class="subLevel initShowList jtBlueGradient">');
+      }
+      _.each(data, function(item) {
+        htmlArr.push('<li class="item">');
+        if (item.children) {
+          if (top) {
+            htmlArr.push('<span class="jtArrowDown"></span>');
+          } else {
+            htmlArr.push('<span class="jtArrowRight"></span>');
+          }
+        }
+        htmlArr.push("<a href='javascript:;'>" + item.name + "</a>");
+        if (item.children) {
+          htmlArr.push(self.getHtml(item.children));
+        }
+        return htmlArr.push('</li>');
+      });
+      htmlArr.push('</ul>');
+      return htmlArr.join('');
+    },
+    /**
+     * setPosition 设置位置（计算子menu的位置）
+    */
+
+    setPosition: function() {
+      var $el;
+
+      $el = this.$el;
+      $el.find('.subLevel .subLevel').each(function() {
+        var obj, parent;
+
+        obj = $(this);
+        parent = obj.parent('.item');
+        return obj.css('left', parent.outerWidth() + 2);
+      });
+      $el.find('.initShowList').removeClass('initShowList');
+      return this;
+    },
+    /**
+     * [render description]
+     * @return {[type]} [description]
+    */
+
+    render: function() {
+      var data, html;
+
+      data = this.model.toJSON();
+      html = this.getHtml(data, true);
+      this.$el.html(html);
+      return this.setPosition();
     }
   });
 

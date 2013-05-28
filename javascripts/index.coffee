@@ -34,7 +34,6 @@ jQuery ($) ->
 			]
 			selectCollection.add data
 			selectCollection.val 5
-			selectCollection.destroy()
 		, 2000
 	, 2000
 
@@ -121,3 +120,47 @@ jQuery ($) ->
 		tabsCollection.at(2).set 'title', '修改标题'
 		tabsCollection.at(2).set 'content', '修改内容'
 	, 2000
+
+	menuCollection = new JT.Collection.Menu [
+		{
+			name : 'menu2'
+		}
+		{
+			name : 'menu3'
+		}
+		{
+			name : 'menu1'
+			children : [
+				{
+					name : 'menu2'
+				}
+				{
+					name : 'menu3'
+				}
+				{
+					name : 'menu11'
+					children : [
+						{
+							name : 'menu111'
+						}
+						{
+							name : 'menu112'
+						}
+					]
+				}
+				{
+					name : 'menu12'
+				}
+			]
+		}
+		{
+			name : 'menu2'
+		}
+		{
+			name : 'menu3'
+		}
+	]
+
+	new JT.View.Menu 
+		el : $('#menu').get 0
+		model : menuCollection

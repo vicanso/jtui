@@ -18,7 +18,7 @@
   border-radius: radius;
   display: inline-block;
   *display: inline;
-  *zoom: 1;
+  *zoom: inline;
 }
 .jtBtn:hover {
   background-color: #c0c0c0;
@@ -395,4 +395,71 @@
 }
 .jtTabs .tab.active {
   display: block;
+}
+.jtMenu .topLevel >.item {
+  border-right: 1px solid #fff;
+  display: inline-block;
+  *display: inline;
+  *zoom: inline;
+}
+.jtMenu .topLevel >.item:last-child {
+  border-right: none;
+}
+.jtMenu .item {
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+}
+.jtMenu .item .jtArrowDown {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+  border-top-color: #fff;
+}
+.jtMenu .item .jtArrowRight {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  border-left-color: #fff;
+}
+.jtMenu .item:hover {
+  background-color: #800000;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff800000,endColorstr=#ffa00000,enabled=true);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #800000), color-stop(1, #a00000));
+  background-image: -webkit-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: -moz-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: -o-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: -ms-linear-gradient(top, #800000 0%, #a00000 100%);
+  background-image: linear-gradient(top, #800000 0%, #a00000 100%);
+}
+.jtMenu .item:hover >.jtArrowDown,
+.jtMenu .item:hover >.jtArrowRight {
+  display: none;
+}
+.jtMenu .item:hover >.subLevel {
+  display: block;
+}
+.jtMenu .item a {
+  display: block;
+  color: #fff;
+  padding: 0 30px;
+}
+.jtMenu .subLevel {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  display: none;
+}
+.jtMenu .subLevel .item {
+  border-bottom: 1px solid #fff;
+}
+.jtMenu .subLevel .item:last-child {
+  border-bottom: none;
+}
+.jtMenu .subLevel.initShowList {
+  display: block;
+  visibility: hidden;
+}
+.jtMenu .subLevel .subLevel {
+  top: 2px;
 }
