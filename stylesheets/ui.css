@@ -86,7 +86,7 @@
   border-radius: radius;
 }
 .jtGrayGradient {
-  color: #000;
+  color: #2a2a2a;
   background-color: #c0c0c0;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fff8f8f8,endColorstr=#ffc0c0c0,enabled=true);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #c0c0c0));
@@ -173,6 +173,9 @@
 .jtSelect .selectList li {
   cursor: pointer;
   padding: 3px 10px;
+}
+.jtSelect .selectList li.checked {
+  background: url("./icon_ok.png") no-repeat right center;
 }
 .jtSelect .selectList li:hover {
   color: #fff;

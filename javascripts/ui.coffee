@@ -23,18 +23,25 @@ JT.Collection.Select = Backbone.Collection.extend {
   ###
   val : (value) ->
     if !value
-      result = @find (model) ->
-        model.get 'checked'
-      if result
-        result.get 'key'
-      else
-        null
+      result = _.compact @map (model) ->
+        if model.get 'checked'
+          model.get 'key'
+        else
+          null
+      result
     else
       @each (model) ->
-        if value != model.get 'key'
-          model.set 'checked', false
+        key = model.get 'key'
+        if _.isArray value
+          if ~_.indexOf value, key
+            model.set 'checked', true
+          else
+            model.set 'checked', false
         else
-          model.set 'checked', true
+          if value != key
+            model.set 'checked', false
+          else
+            model.set 'checked', true
       @
 
 }
@@ -70,7 +77,8 @@ JT.View.Select = Backbone.View.extend {
     $el = @$el
     selectList = $el.find '.selectList'
     if selectList.is ":hidden"
-      $el.find('.userInput').val ''
+      if !@options.multi
+        $el.find('.userInput').val ''
       @show()
     else
       @hide()
@@ -81,14 +89,16 @@ JT.View.Select = Backbone.View.extend {
   ###
   dblclickUserInput : ->
     $el = @$el
-    $el.find('.userInput').val ''
+    if !@options.multi
+      $el.find('.userInput').val ''
     @show $el.find '.selectList'
   ###*
    * show 显示选择列表
    * @return {[type]}            [description]
   ###
   show : ->
-    @filter()
+    if !@options.multi
+      @filter()
     @$el.find('.showSelect span').removeClass('jtArrowDown').addClass 'jtArrowUp'
     @$el.find('.selectList').show()
     @
@@ -97,9 +107,9 @@ JT.View.Select = Backbone.View.extend {
    * @return {[type]}            [description]
   ###
   hide : ->
-    @reset()
+    # @reset()
     @$el.find('.showSelect span').removeClass('jtArrowUp').addClass 'jtArrowDown'
-    @$el.find('.selectList').hide()
+    @$el.find('.selectList').hide().find('.option').show()
     @
   ###*
    * filter 筛选符合条件的option
@@ -123,7 +133,9 @@ JT.View.Select = Backbone.View.extend {
    * @return {[type]} [description]
   ###
   reset : ->
-    @$el.find('.selectList .option').show()
+    @model.each (item) ->
+      item.set 'checked', false
+    @$el.find('.selectList').hide().find('.option').show()
     @
   ###*
    * clickSelect 用户点击选择
@@ -133,12 +145,16 @@ JT.View.Select = Backbone.View.extend {
   clickSelect : (e) ->
     self = @
     index = @$el.find('.option').index e.currentTarget
-    @model.each (model, i) ->
-      if i != index
-        model.set 'checked', false
-      else
-        model.set 'checked', true
-        self.toggleSelectList()
+    if self.options.multi
+      optionModel = @model.at index
+      optionModel.set 'checked', !optionModel.get 'checked'
+    else
+      @model.each (model, i) ->
+        if i != index
+          model.set 'checked', false
+        else
+          model.set 'checked', true
+          self.toggleSelectList()
     @
   ###*
    * select 选择某一option
@@ -146,7 +162,20 @@ JT.View.Select = Backbone.View.extend {
    * @return {[type]}       [description]
   ###
   select : (model) ->
-    @$el.find('.userInput').val model.get 'name'
+    userInput = @$el.find '.userInput'
+    optionObjs = @$el.find '.option'
+    if @options.multi
+      valueList = []
+      @model.each (optionModel, i) ->
+        if optionModel.get 'checked'
+          optionObjs.eq(i).addClass 'checked'
+          valueList.push optionModel.get 'name'
+        else
+          optionObjs.eq(i).removeClass 'checked'
+          null
+      userInput.val valueList.join ','
+    else
+      userInput.val model.get 'name'
     @
   ###*
    * destroy 销毁对象
@@ -168,9 +197,13 @@ JT.View.Select = Backbone.View.extend {
       self.listenTo self.model, event, (models, collection, options) ->
         self.item event, models, options
     self.listenTo self.model, 'change:checked', (model, value) ->
-      if value == true
+      if self.options.multi
+        self.select()
+      else if value == true
         self.select model
     @render()
+    if @options.disabledInput
+      @$el.find('.userInput').attr 'disabled', true
     @
   ###*
    * change model的change事件
@@ -221,6 +254,7 @@ JT.View.Select = Backbone.View.extend {
       list : listHtmlArr.join ''
     html = @template @templateData
     @$el.html html
+    @$el.find('.userInput').width @$el.find('.jtSelect').width() - 25
     @
 }
 
@@ -270,7 +304,7 @@ JT.View.Dialog = Backbone.View.extend {
   close : ->
     if @modalMask
       @modalMask.hide()
-    if @model.destroyOnClose
+    if @model.get 'destroyOnClose'
       @destroy()
     else
       @$el.hide()
@@ -280,7 +314,7 @@ JT.View.Dialog = Backbone.View.extend {
    * @return {[type]} [description]
   ###
   destroy : ->
-    if @model.modal
+    if @model.get 'modal'
       @modalMask.remove()
     @remove()
   ###*
@@ -332,7 +366,7 @@ JT.View.Dialog = Backbone.View.extend {
     @templateData = @model.toJSON()
 
     @templateData.btns = @getBtnsHtml @templateData.btns
-    if @model.modal
+    if @model.get 'modal'
       @modalMask = $('<div class="jtMask" />').appendTo 'body'
     html = @template @templateData
     @$el.html html

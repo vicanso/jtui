@@ -4,6 +4,92 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="./stylesheets/global.css">
 		<link rel="stylesheet" href="./stylesheets/ui.css">
+		<style type="text/css">
+			#setting .mimeTypeList .jtSelect{
+				width: 100%;
+			}
+			#setting .resHeadersContainer .item{
+				height: 30px;
+				line-height: 30px;
+			}
+			#setting .resHeadersContainer{
+				margin-top: 10px;
+			}
+			#setting .resHeadersContainer .item .name{
+				width: 150px;
+			}
+			#setting .resHeadersContainer .item .value input{
+				display: block;
+				height: 100%;
+				width: 320px;
+				text-indent: 3px;
+			}
+			#msgListBox{
+				position: fixed;
+				right:0;
+				bottom:0;
+				width: 150px;
+				border:1px solid #e0e0e0;
+				border-radius:3px;
+			}
+			.msgList .title{
+				height: 25px;
+				line-height: 25px;
+				text-indent: 5px;
+			}
+			.msgList .title .total{
+				display: none;
+				color:#800000;
+			}
+			.msgList .title .minimize{
+				float: right;
+				display: block;
+				width: 20px;
+				text-align: center;
+				height: 100%;
+				float: right;
+				margin-right: 2px;
+				font-size: 25px;
+				line-height: 20px;
+				color: #0a0a0a;
+				opacity: 0.6;
+				line-height: 12px;
+			}
+			.msgList .title .maximize{
+				float: right;
+				display: block;
+				width: 10px;
+				height: 10px;
+				border: 2px solid #080808;
+				float: right;
+				margin-right: 4px;
+				margin-top: 4px;
+				color: #0a0a0a;
+				opacity: 0.6;
+				display: none;
+			}
+			.msgList .items{
+				max-height:250px;
+				overflow-y:scroll;
+			}
+			.msgList .item{
+				height: 25px;
+				line-height: 25px;
+				text-indent: 5px;
+				overflow: hidden;
+				padding-right: 24px;
+      	border-bottom:1px solid #e0e0e0;
+			}
+			.msgList .item.doing{
+      	background: url(./stylesheets/iloading.png) center right no-repeat;
+			}
+			.msgList .item:nth-child(2n){
+      	background-color:#f7f7f7;
+      }
+      .msgList .item:nth-child(2n + 1){
+      	background-color:#eff2ff;
+      }
+		</style>
 	</head>
 	<body style='margin:20px;'>
 		<div id="select"></div>
@@ -14,10 +100,15 @@
 		</div>
 
 		<div id='menu' class='jtMenu jtWidget' style='margin-top:30px;'></div>
+		<div id='setting'></div>
+		<div id='msgListBox'>
+		</div>
 	</body>
 	<script type="text/javascript" src="./javascripts/jquery-2.0.0.min.js"></script>
 	<script type="text/javascript" src="./javascripts/underscore-min.js"></script>
 	<script type="text/javascript" src="./javascripts/backbone-min.js"></script>
 	<script type="text/javascript" src="./javascripts/ui.js"></script>
+	<script type="text/javascript" src="./javascripts/mimesetting.js"></script>
+	<script type="text/javascript" src="./javascripts/msglist.js"></script>
 	<script type="text/javascript" src="./javascripts/index.js"></script>
 </html>
