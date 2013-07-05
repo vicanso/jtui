@@ -1,7 +1,7 @@
 (function() {
 
   jQuery(function($) {
-    var i, msgCollection, msgs, resHeaders, staticMimes;
+    var i, msgs, resHeaders, staticMimes;
     resHeaders = [
       {
         name: 'Content-Language',
@@ -31,15 +31,7 @@
       }
       return _results;
     })();
-    msgs[0].status = 'doing';
-    msgCollection = new MsgCollection(msgs);
-    new MsgListView({
-      el: $('#msgListBox'),
-      model: msgCollection
-    });
-    return setInterval(function() {
-      return msgCollection.remove(msgCollection.at(_.random(0, msgCollection.length)));
-    }, 5000);
+    return msgs[0].status = 'doing';
   });
 
 }).call(this);

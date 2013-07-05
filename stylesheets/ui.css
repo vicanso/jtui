@@ -29,6 +29,9 @@
   background-image: -ms-linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
   background-image: linear-gradient(top, #f8f8f8 0%, #c0c0c0 100%);
 }
+.jtBtn.disabled {
+  color: #d1d1d1;
+}
 .jtBtnPrimary {
   background-color: #0054a6;
   border: 1px solid #0054a6;
@@ -131,6 +134,7 @@
   top: 0;
   bottom: 0;
   right: 0;
+  z-index: 9;
   background-color: rgba(0,0,0,0.6);
 }
 .jtSelect {
@@ -185,6 +189,7 @@
   -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
   box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  border: 1px solid #c0c0c0\9;
   width: 500px;
   position: fixed;
   left: 50%;
@@ -234,6 +239,7 @@
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #c0c0c0\9;
   padding: 4px;
   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
@@ -334,6 +340,7 @@
   -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
   box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  border: 1px solid #c0c0c0\9;
 }
 .jtAccordion .item .title {
   height: 30px;
@@ -364,6 +371,7 @@
   -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
   box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  border: 1px solid #c0c0c0\9;
 }
 .jtTabs .nav {
   height: 30px;

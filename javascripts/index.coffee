@@ -26,30 +26,14 @@ jQuery ($) ->
 
 	msgs = ({name : "测试文件#{i + 1}"} for i in [0...10])
 	msgs[0].status = 'doing'
-	# msgs = [
-	# 	{
-	# 		name : '测试文件1.txt'
-	# 		status : 'doing'
-	# 	}
-	# 	{
-	# 		name : '测试文件2.txt'
-	# 		status : 'doing'
-	# 	}
-	# 	{
-	# 		name : '测试文件3.txt'
-	# 	}
-	# 	{
-	# 		name : '测试文件4.txt'
-	# 	}
-	# ]
-	msgCollection = new MsgCollection msgs
-	new MsgListView {
-		el : $ '#msgListBox'
-		model : msgCollection
-	}
-	setInterval ->
-		msgCollection.remove msgCollection.at _.random 0, msgCollection.length
-	, 5000
+	# msgCollection = new MsgCollection msgs
+	# new MsgListView {
+	# 	el : $ '#msgListBox'
+	# 	model : msgCollection
+	# }
+	# setInterval ->
+	# 	msgCollection.remove msgCollection.at _.random 0, msgCollection.length
+	# , 5000
 
 	# MimeSetting.openDlg $('#setting'), resHeaders, staticMimes, (err, result) ->
 	# 	console.dir result

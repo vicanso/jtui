@@ -374,9 +374,8 @@ JT.View.Dialog = Backbone.View.extend {
 
 JT.View.Alert = Backbone.View.extend {
   initialize : ->
-    el = $('<div class="jtAlertDlg" />').appendTo('body').get 0
     new JT.View.Dialog {
-      el : el
+      el : @$el.addClass('jtAlertDlg').appendTo 'body'
       model : @model
     }
 }
